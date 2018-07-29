@@ -23,7 +23,8 @@
  
 						  <div class="card-body  ">
 						    <h5 class="card-title  bg-primary p-4 my-10">Enter Medicne Details</h5>
-						    <form>
+
+						    <form method="post" action= "action.php">
     					 		<table class="table table-primary">
 
                                    <tr>
@@ -32,17 +33,17 @@
                                    	
                                    </tr>
 
-                                   <tr>
-                                   	<td>Qunatity</td>
-                                   	<td><input type="text" class="form-control" name="name" placeholder="Enter Qunatity"> </td>
-                                   	
-                                   </tr>
-
+                                    <tr>
+                                     	<td>Qunatity</td>
+                                         <td><input type="text" class="form-control" name="quantity" value="quantity" placeholder="Enter the medicine name"> </td>
+                                                                      	
+                                     </tr> 
+                                   
                                    <tr>
                                    	
                                    	<td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="submit" value="store"> </td>
                                    	
-                                   </tr>
+                                   </tr> 
     					 		
     					 	     </table>
     					 	</form>
