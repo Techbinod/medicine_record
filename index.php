@@ -1,3 +1,7 @@
+<?php include ('action.php'); ?>
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,20 +26,20 @@
     				<div class="card" style="width:auto">
  
 						  <div class="card-body  ">
-						    <h5 class="card-title  bg-primary p-4 my-10">Enter Medicne Details</h5>
+						    <h5 class="card-title  bg-primary p-4 my-10">Enter Medine Details</h5>
 
 						    <form method="post" action= "action.php">
     					 		<table class="table table-primary">
 
                                    <tr>
                                    	<td>Medicine Name</td>
-                                   	<td><input type="text" class="form-control" name="name" placeholder="Enter the medicine name"> </td>
+                                   	<td><input type="text" class="form-control" name="name" placeholder="Enter the medicine name" required> </td>
                                    	
                                    </tr>
 
                                     <tr>
                                      	<td>Qunatity</td>
-                                         <td><input type="text" class="form-control" name="quantity" value="quantity" placeholder="Enter the medicine name"> </td>
+                                         <td><input type="number" class="form-control" name="quantity" value="quantity" placeholder="Enter the medicine name" required> </td>
                                                                       	
                                      </tr> 
                                    
@@ -72,13 +76,33 @@
 							<th>Action</th>
 							<th>Action</th>
 						</tr>
-						<tr>
-							<td>1</td>
-							<td>Jhandu Balm</td>
-							<td>45</td>
-							<td><a href="#"  class="btn btn-primary">Edit</a></td>
-							<td><a href="#"  class="btn btn-danger">Delete</a></td>
-						</tr>
+                          
+                          <?php 
+
+                            $myrowdata = $obj1->fetch_record("medicines");
+
+                            /*debugger($myrowdata,true);*/
+
+                            foreach ($myrowdata as $row) {
+                                  
+                             ?> 
+                              <tr>
+								<td><?php echo $row['id']; ?></td>
+								<td><?php echo $row['m_name']; ?></td>
+								<td><?php echo $row['qty']; ?></td>
+								
+								<td><a href="#"  class="btn btn-primary">Edit</a></td>
+								<td><a href="#"  class="btn btn-danger">Delete</a></td>
+						     </tr>
+                             <?php
+
+                            }
+
+                           ?>
+
+
+
+						
 					</table>
 				</div>
 

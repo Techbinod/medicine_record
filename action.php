@@ -24,11 +24,29 @@ class DataOperation extends Database{
              }else{
              	echo "Data is not inserted successfully";
              }
-             
 
-	   }
 
-}
+         }
+
+           public function fetch_record($table){
+
+             $sql ="SELECT * FROM ".$table;
+             $array = array();
+             $query = mysqli_query($this->conn,$sql);
+
+             while($row =mysqli_fetch_assoc($query)){
+             	$array[] = $row;
+             }
+
+
+
+             return $array;
+
+	      }
+
+
+     }
+
 
 
 
@@ -44,20 +62,19 @@ if(isset($_POST["submit"])){
 
          "m_name" => $_POST["name"],
           "qty" => $_POST["quantity"]
+         /* "key" => "value" you can add more according to cl*/
 	  );
 
-}
 
+    $query = ($obj1 ->insert_record("medicines",$myArray));
 
-
-
-$query = ($obj1 ->insert_record("medicines",$myArray));
-
-if($query){
+   if($query){
 	header("location:index.php?msg=Record Inserted ");
+ 
+
+ }
+
 }
-
-
 
 
  ?>
