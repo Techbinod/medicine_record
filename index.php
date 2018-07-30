@@ -28,6 +28,9 @@
 						  <div class="card-body  ">
 						    <h5 class="card-title  bg-primary p-4 my-10">Enter Medine Details</h5>
 
+
+						    
+
 						    <form method="post" action= "action.php">
     					 		<table class="table table-primary">
 
